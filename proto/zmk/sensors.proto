@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package zmk.sensors;
+
+message Request {
+    oneof request_type {
+        GetSensorBindingRequest get_sensor_binding = 1;
+    }
+}
+
+message Response {
+    oneof response_type {
+        SensorBinding get_sensor_binding = 1;
+    }
+}
+
+message GetSensorBindingRequest {
+    uint32 layer_id = 1;
+    int32 sensor_index = 2;
+}
+
+message SensorBinding {
+    sint32 computed_behavior_id = 1;
+    sint32 behavior_id = 2;
+    uint32 param1 = 3;
+    uint32 param2 = 4;
+}

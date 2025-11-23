@@ -7,6 +7,7 @@ message Request {
         GetSensorBindingRequest get_sensor_binding = 1;
         SetSensorBindingRequest set_sensor_binding = 2;
         uint32 get_sensor_config = 3;
+        SetSensorConfigRequest set_sensor_config = 4;
     }
 }
 
@@ -15,6 +16,7 @@ message Response {
         SensorBinding get_sensor_binding = 1;
         SetSensorBindingResponse set_sensor_binding = 2;
         SensorConfig get_sensor_config = 3;
+        SetSensorConfigResponse set_sensor_config = 4;
     }
 }
 
@@ -43,6 +45,11 @@ message SensorBinding {
     uint32 param2 = 4;
 }
 
+message SetSensorConfigRequest {
+    uint32 sensor_index = 1;
+    uint32 triggers_per_rotation = 2;
+}
+
 enum SetSensorBindingResponse {
     SET_SENSOR_BINDING_RESP_OK = 0;
     SET_SENSOR_BINDING_RESP_INVALID_INDEX = 1;
@@ -52,4 +59,10 @@ enum SetSensorBindingResponse {
 
 message SensorConfig {
     uint32 triggers_per_rotation = 1;
+}
+
+enum SetSensorConfigResponse {
+    SET_SENSOR_CONFIG_RESP_OK = 0;
+    SET_SENSOR_CONFIG_RESP_INVALID_INDEX = 1;
+    SET_SENSOR_CONFIG_RESP_INVALID_PARAMETERS = 2;
 }

@@ -42,5 +42,6 @@ message Notification {
     oneof subsystem {
         zmk.core.Notification core = 2;
         zmk.keymap.Notification keymap = 5;
+        zmk.sensors.Notification sensors = 6;
     }
 }

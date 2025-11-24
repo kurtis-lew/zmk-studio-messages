@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package zmk.backlight;
+
+message Request {
+    oneof request_type {
+        bool backlight_on = 1;
+        bool backlight_off = 2;
+        bool backlight_toggle = 3;
+        bool backlight_is_on = 4;
+        bool backlight_get_brightness = 5;
+        uint32 backlight_set_brightness = 6;
+    }
+}
+
+message Response {
+    oneof response_type {
+        bool backlight_on = 1;
+        bool backlight_off = 2;
+        bool backlight_toggle = 3;
+        bool backlight_is_on = 4;
+        uint32 backlight_get_brightness = 5;
+        bool backlight_set_brightness = 6;
+    }
+}

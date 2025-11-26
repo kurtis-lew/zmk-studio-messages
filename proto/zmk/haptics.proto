@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package zmk.haptics;
+
+message Request {
+    oneof request_type {
+        bool haptics_on = 1;
+        bool haptics_off = 2;
+        bool haptics_toggle = 3;
+        bool haptics_is_on = 4;
+        bool haptics_get_rated_voltage = 5;
+        uint32 haptics_set_rated_voltage = 6;
+    }
+}
+
+message Response {
+    oneof response_type {
+        bool haptics_on = 1;
+        bool haptics_off = 2;
+        bool haptics_toggle = 3;
+        bool haptics_is_on = 4;
+        uint32 haptics_get_rated_voltage = 5;
+        bool haptics_set_rated_voltage = 6;
+    }
+}
